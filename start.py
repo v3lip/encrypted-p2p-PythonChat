@@ -44,9 +44,9 @@ def receive_message(sock):
 
 def main():
     global username
-    username = input("Hva heter du fitte: ")
+    username = input("What is your nickname: ")
 
-    choice = input("(l)isten eller (c)onnect (l er host, c er kobling mot motpart)? ")
+    choice = input("(l)isten or (c)onnect? ")
 
     if choice == 'l':
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -58,7 +58,7 @@ def main():
                 threading.Thread(target=receive_message, args=(conn,), daemon=True).start()
                 send_message(conn)
     elif choice == 'c':
-        host = input("Skriv inn IPen til fitten i andre enden: ")
+        host = input("What is the IP of the host?  ")
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((host, 12345))
             threading.Thread(target=receive_message, args=(s,), daemon=True).start()
