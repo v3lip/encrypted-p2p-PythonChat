@@ -7,7 +7,7 @@ import threading
 
 key = "ab-YPb_Hzm0_eypRz0bG8bLeReGB1guJvQnYiuCxJoE="
 cipher = Fernet(key)
-print(f"Nøkkel: {key}")
+print(f"Key: {key}")
 
 
 def clear_console():
